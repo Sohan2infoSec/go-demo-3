@@ -1,7 +1,8 @@
 FROM golang:1.12 AS build
 ADD . /src
 WORKDIR /src
-ENV HTTP_PROXY="http://10.60.46.250:3128" HTTPS_PROXY="http://10.60.46.250:3128"
+ENV HTTP_PROXY="http://10.60.46.250:3128" 
+ENV HTTPS_PROXY="http://10.60.46.250:3128"
 RUN go get -d -v -t
 RUN go test --cover -v ./... --run UnitTest
 RUN go build -v -o go-demo
@@ -19,4 +20,5 @@ CMD ["go-demo"]
 
 COPY --from=build /src/go-demo /usr/local/bin/go-demo
 RUN chmod +x /usr/local/bin/go-demo
-ENV HTTP_PROXY="" HTTPS_PROXY=""
+ENV HTTP_PROXY="" 
+ENV HTTPS_PROXY=""
