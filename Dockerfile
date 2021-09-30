@@ -1,6 +1,7 @@
 FROM golang:1.12 AS build
 ADD . /src
 WORKDIR /src
+ENV GIT_SSL_NO_VERIFY=1
 ENV HTTP_PROXY="http://10.60.46.250:3128" 
 ENV HTTPS_PROXY="http://10.60.46.250:3128"
 RUN go get -d -v -t
