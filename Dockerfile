@@ -1,4 +1,4 @@
-FROM golang:1.12 AS build
+FROM golang:1.13 AS build
 ADD . /src
 WORKDIR /src
 #ENV HTTP_PROXY="http://10.60.46.250:3128" 
