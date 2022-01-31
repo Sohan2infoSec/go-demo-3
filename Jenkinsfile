@@ -1,3 +1,4 @@
+cat Jenkinsfile
 import java.text.SimpleDateFormat
 
 def props
@@ -85,7 +86,7 @@ spec:
             k8sRollout(props.project)
           }
           container("golang") {
-            k8sProdTestGolang(props.addr)
+            k8sProdTestGolang(props.prod-addr)
           }
         } catch(e) {
           container("helm") {
