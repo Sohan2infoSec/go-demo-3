@@ -89,6 +89,7 @@ spec:
           }
         } catch(e) {
           container("helm") {
+            sendTelegram(props.project + '/#' + env.BUILD_DISPLAY_NAME + '-' + env.BRANCH_NAME + '  error build.')
             k8sRollback(props.project)
           }
         }
