@@ -1,4 +1,3 @@
-cat Jenkinsfile
 import java.text.SimpleDateFormat
 
 def props
