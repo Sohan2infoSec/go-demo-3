@@ -79,13 +79,13 @@ spec:
       stage("deploy") {
         try {
           container("helm") {
-            k8sUpgrade(props.project, props.addr)
+            k8sUpgrade(props.project, props.prod_addr)
           }
           container("kubectl") {
             k8sRollout(props.project)
           }
           container("golang") {
-            k8sProdTestGolang(props.addr)
+            k8sProdTestGolang(props.prod_addr)
           }
         } catch(e) {
           container("helm") {
