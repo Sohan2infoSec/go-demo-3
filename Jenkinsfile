@@ -59,7 +59,7 @@ spec:
         }
       } catch(e) {
           slackSend(botUser: true, channel: 'sang-test', tokenCredentialId: 'slack-token', color: '#ff0000', message: 'Test error build: ' + env.TAG_BETA)
-          sendTelegram(env.JOB_BASE_NAME + '/#' + env.BRANCH_NAME + '  error build: ' + env.BUILD_DISPLAY_NAME)
+          sendTelegram(props.project + '/#' + env.BUILD_DISPLAY_NAME + '-' + env.BRANCH_NAME + '  error build.')
           error "Failed functional tests"
       } finally {
         container("helm") {
